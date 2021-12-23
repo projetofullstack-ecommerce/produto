@@ -1,0 +1,46 @@
+<section class="container">
+  <h2 class="titulo">Produtos</h2>
+  <table class="tabela">
+    <thead class="tabela__cabecalho">
+      <th class="tabela__cabecalho__conteudo">Código</th>
+      <th class="tabela__cabecalho__conteudo">Nome</th>
+      <th class="tabela__cabecalho__conteudo">Preço</th>
+      <th class="tabela__cabecalho__conteudo"></th>
+      <th class="tabela__cabecalho__conteudo"></th>
+      <th class="tabela__cabecalho__conteudo"></th>
+    </thead>
+    <tbody *ngIf="produtos.length; else listaVazia">
+      <tr class="tabela__linha" *ngFor="let produto of produtos">
+        <td class="tabela__conteudo">
+          {{ produto.codigo }}
+        </td>
+        <td class="tabela__conteudo">{{ produto.nome }}</td>
+        <td class="tabela__conteudo">{{ produto.preco | currency }}</td>
+        <td class="tabela__conteudo">
+          <mat-icon (click)="detalheProduto(produto.id)" class="icon"
+            >more_horiz</mat-icon
+          >
+        </td>
+        <td class="tabela__conteudo">
+          <mat-icon
+            (click)="alteraProduto(produto.id)"
+            class="icon"
+            color="primary"
+            >edit</mat-icon
+          >
+        </td>
+        <td class="tabela__conteudo">
+          <mat-icon
+            (click)="excluiProduto(produto.id)"
+            class="icon"
+            color="warn"
+            >delete</mat-icon
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #listaVazia>
+    <p>Nenhum produto cadastrado</p>
+  </ng-template>
+</section>

@@ -1,0 +1,29 @@
+<section class="container">
+  <form class="formulario" (ngSubmit)="onSubmit()">
+    <h2 class="formulario__titulo">Detalhe do Produto</h2>
+
+    <div class="form-field">
+      <label class="form-field__label" for="valor">ID</label>
+      <input readonly class="form-field__input" id="valor" type="number" [(ngModel)]="produto.id" name="id"/>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label" for="valor">Código</label>
+      <input readonly class="form-field__input" id="valor" type="text" [(ngModel)]="produto.codigo" name="codigo"/>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label" for="nome">Nome</label>
+      <input readonly class="form-field__input" id="nome" type="text" [(ngModel)]="produto.nome" name="nome" />
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label" for="preco">Preço</label>
+      <input readonly class="form-field__input" id="preco" type="number" [(ngModel)]="produto.preco" name="preco" />
+    </div>
+
+    <div class="botao-wrapper">
+      <button readonly class="botao" type="submit">Voltar</button>
+    </div>
+  </form>
+</section>
