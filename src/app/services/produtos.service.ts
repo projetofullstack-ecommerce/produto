@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Produto } from '../models/produto.model';
@@ -6,12 +7,9 @@ import { Produto } from '../models/produto.model';
   providedIn: 'root',
 })
 export class ProdutosService {
-  private listaProdutos: Produto[];
-  private url = 'http://localhost:3000/api/v1/produtos';
+  private url = environment.PRODUTO_API_BASE_URL;
 
-  constructor(private httpClient: HttpClient) {
-    this.listaProdutos = [];
-  }
+  constructor(private httpClient: HttpClient) {}
 
   findAll() {
     return this.httpClient.get<Produto[]>(this.url);

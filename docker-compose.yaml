@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+  produto:
+    build: .
+    image: produto
+    container_name: produto
+    restart: always
+    ports:
+      - '8080:80'
+    depends_on:
+      - produto-api
+
+networks:
+  default:
+    name: ecommerce-net
